@@ -1,5 +1,5 @@
 ---
-title: Get GitOps Done
+title: Getting GitOps Done
 date: 2019-08-03 20:00:00 +0000
 categories: [Blogging]
 tags: [software,architecture,platform,gitops]
