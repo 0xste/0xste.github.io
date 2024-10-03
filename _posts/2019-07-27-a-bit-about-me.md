@@ -1,6 +1,5 @@
 ---
 title: A bit about me
-author: 0xste
 date: 2019-07-27 20:00:00 +0000
 categories: [Blogging]
 tags: [software,architecture]

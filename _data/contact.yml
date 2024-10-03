@@ -4,11 +4,15 @@
   icon: "fab fa-safari"
   url: "https://stefanomantini.co.uk"
 
+- type: twitter
+  icon: "fa-brands fa-twitter"
+
 - type: github
   icon: "fab fa-github"
 
-- type: twitter
-  icon: "fa-brands fa-x-twitter"
+- type: gitlab
+  icon: "fab fa-gitlab"
+  url: "https://gitlab.com/stefanomantini"
 # Uncomment and complete the url below to enable more contact options
 #
 # - type: mastodon
