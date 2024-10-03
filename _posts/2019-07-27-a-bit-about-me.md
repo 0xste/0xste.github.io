@@ -4,10 +4,6 @@ author: 0xste
 date: 2019-07-27 20:00:00 +0000
 categories: [Blogging]
 tags: [software,architecture]
-image:
-  path: /commons/devices-mockup.png
-  lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
-  alt: Responsive rendering of Chirpy theme on multiple devices.
 ---
 
 After an inordinate amount of procrastination I've finally bitten the bullet and am putting together a series of blog posts on modern cloud-native applications, platforms and design concepts. I will be drawing on my experience across a few different roles and providing examples, templates and design literature with an aim to use this series to have some interesting conversations on the topics covered.
