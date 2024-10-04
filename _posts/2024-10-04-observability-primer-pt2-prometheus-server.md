@@ -1,8 +1,8 @@
 ---
 title: Prometheus Primer
 date: 2024-10-03 02:00:00 +0000
-categories: [Blogging]
-tags: [software,architecture]
+categories: [Observability]
+tags: [software,engineering,prometheus,openmetrics,opensource]
 image:
   path: /assets/img/prometheus/prometheus-fire.jpg
   alt: Prometheus

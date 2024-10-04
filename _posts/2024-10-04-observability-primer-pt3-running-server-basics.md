@@ -1,8 +1,8 @@
 ---
 title: Running Prometheus
 date: 2024-10-03 03:00:00 +0000
-categories: [Blogging]
-tags: [software,architecture]
+categories: [Observability]
+tags: [software,engineering,prometheus,opensource]
 image:
   path: /assets/img/prometheus/running.png
   alt: Prometheus

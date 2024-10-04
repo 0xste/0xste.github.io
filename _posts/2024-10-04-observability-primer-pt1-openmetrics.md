@@ -1,8 +1,8 @@
 ---
 title: OpenMetrics Primer
 date: 2024-10-03 01:00:00 +0000
-categories: [Blogging]
-tags: [software,architecture]
+categories: [Observability]
+tags: [software,engineering,openmetrics,opensource]
 image:
   path: /assets/img/openmetrics/openmetrics.jpg
   alt: OpenMetrics

@@ -1,8 +1,8 @@
 ---
 title: Metric Patterns
 date: 2024-10-03 04:00:00 +0000
-categories: [Blogging]
-tags: [software,architecture]
+categories: [Observability]
+tags: [software,engineering,prometheus,openmetrics,opensource]
 image:
   path: /assets/img/common/patterns.jpg
   alt: patterns
