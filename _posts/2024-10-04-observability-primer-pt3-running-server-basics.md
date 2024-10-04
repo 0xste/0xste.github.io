@@ -1,6 +1,6 @@
 ---
 title: Running Prometheus
-date: 2024-10-04 03:00:00 +0000
+date: 2024-10-03 03:00:00 +0000
 categories: [Blogging]
 tags: [software,architecture]
 image:
