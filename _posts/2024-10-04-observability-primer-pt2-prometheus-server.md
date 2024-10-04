@@ -12,7 +12,7 @@ In this post, we'll look specifically at Prometheus, and the query language itse
 
 ## What is Prometheus?
 
-A lot of people's exposure to Prometheus is through viewing various Grafana dashboards, a few popular public ones come to mind, famously: [Wikipedia](https://grafana.wikimedia.org/?orgId=1), [CNCF DevStats](https://devstats.cncf.io/), and the [Large Hadron Collider](http://monit-grafana-open.cern.ch/goto/QInjqFzNR?orgId=16) at CERN.
+A lot of people's exposure to Prometheus is through viewing various Grafana dashboards, a few popular public ones come to mind, famously: [Wikipedia](https://grafana.wikimedia.org/?orgId=1), [CNCF DevStats](https://devstats.cncf.io/), and the [Large Hadron Collider](https://monit-grafana-open.cern.ch/goto/QInjqFzNR?orgId=16) at CERN.
 
 A lot of people diving deeper into these kinds of dashboards, or trying to implement themselves pretty quickly find themselves running into the main query language for Prometheus timeseries.
 
