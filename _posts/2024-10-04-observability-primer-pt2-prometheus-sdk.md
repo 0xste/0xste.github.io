@@ -14,11 +14,6 @@ In this post, we'll look specifically at Prometheus, and the query language itse
 
 A lot of people's exposure to Prometheus is through viewing various Grafana dashboards, a few popular public ones come to mind, famously: [Wikipedia](https://grafana.wikimedia.org/?orgId=1), [CNCF DevStats](https://devstats.cncf.io/), and the [Large Hadron Collider](https://monit-grafana-open.cern.ch/goto/QInjqFzNR?orgId=16) at CERN.
 
-A lot of people diving deeper into these kinds of dashboards, or trying to implement themselves pretty quickly find themselves running into the main query language for Prometheus timeseries.
-
-Anecdotally, engineers i've worked with on this agree that the learning curve for PromQL is... quite steep.
-
-It may sometimes feel like you're chained to a rock, having your liver pecked out by an eagle every day for eternity when trying to get a PromQL query to do what you expect it to.
 
 ## A practical Example
 
