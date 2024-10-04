@@ -1,6 +1,6 @@
 ---
 title: Metric Patterns
-date: 2024-10-03 03:00:00 +0000
+date: 2024-10-04 04:00:00 +0000
 categories: [Blogging]
 tags: [software,architecture]
 image:
@@ -62,5 +62,3 @@ This has been added to the already existing `validator_statuses` metric so that
 ## In the next post! 
 
 Given the content of this post, we start to get deeper into the realm of prometheus, as a "metric series" begins to stray into Prometheus Territory, the main difference here is that OpenMetrics defines the wire format, and Prometheus provides the query engine and overarching storage and aggregation platform, which we'll explore a bit more in the next post
-
-

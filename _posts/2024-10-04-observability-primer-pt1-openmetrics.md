@@ -1,6 +1,6 @@
 ---
 title: OpenMetrics Primer
-date: 2024-10-03 01:00:00 +0000
+date: 2024-10-04 01:00:00 +0000
 categories: [Blogging]
 tags: [software,architecture]
 image:
@@ -132,3 +132,8 @@ Cardinality is how many unique values of something there are. So for example a l
 It's generally advised not to use labels with high cardinality (many different label values), such as user IDs, email addresses, or other unbounded sets of values. 
 
 This can grow to be incredibly unwieldly, and is always something that engineers should keep in mind when using the various SDKs, as for the most part, there are no guard rails!
+
+
+## In the next post
+
+In the next post we'll look to explore the prometheus SDK in GO, and start to explore some practical examples.
