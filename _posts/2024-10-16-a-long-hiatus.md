@@ -1,6 +1,6 @@
 ---
 title: A long hiatus
-date: 2024-10-03 01:00:00 +0000
+date: 2024-10-16 12:00:00 +0000
 categories: [Blogging]
 tags: [software,architecture]
 image:

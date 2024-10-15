@@ -1,6 +1,6 @@
 ---
 title: Prometheus Primer
-date: 2024-10-03 02:00:00 +0000
+date: 2024-12-12 02:00:00 +0000
 categories: [Observability]
 tags: [software,engineering,prometheus,openmetrics,opensource]
 image:
