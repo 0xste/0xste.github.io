@@ -1,6 +1,6 @@
 ---
 title: Metric Patterns
-date: 2024-12-12 04:00:00 +0000
+date: 2024-10-23 10:00:00 +0000
 categories: [Observability]
 tags: [software,engineering,prometheus,openmetrics,opensource]
 image:

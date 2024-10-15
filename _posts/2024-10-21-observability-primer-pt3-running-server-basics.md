@@ -1,6 +1,6 @@
 ---
 title: Running Prometheus
-date: 2024-12-12 03:00:00 +0000
+date: 2024-10-21 10:00:00 +0000
 categories: [Observability]
 tags: [software,engineering,prometheus,opensource]
 image:
