@@ -145,11 +145,6 @@ While it's quite an obtuse term, Prometheus today covers a lot of use-cases, but
 
 For the purposes of this blog, we'll look primarily at the Database elements from a practical applied perspective as opposed to operational aspects.
 
-
-
-![alt text](image.png)
-
-
 # Prometheus
 
 Prometheus is many things, for the purposes of this section, i'm going to refer to it largely in the context of a time series database, however it supports a wide array of things outside of that scope, including but not limited to metric ingestion, service discovery, it's own query language PromQL, a GUI for visualizing queries, and it's on baked-in alerting system. All of which combine to provide a flexible ecosystem of tools that are simple to get started with.
