@@ -258,6 +258,6 @@ http_request_count{path="/favicon.ico"} 2
 http_request_count{path="/hello"} 1
 ```
 
-## In the next post
+## Wrapping Up
 
-In the next post, we'll look at ingesting these metrics, and get the ball rolling on a simple local setup so we can start to excercise some PromQL.
+In this post we covered a few areas for how i generally look to implement prometheus metrics across projects through a few practical examples. In the next post, we'll look into some metric patterns we can use to optimize at the query side for the purposes of broader observability.
