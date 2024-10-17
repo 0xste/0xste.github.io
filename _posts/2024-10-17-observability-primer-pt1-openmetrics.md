@@ -10,14 +10,13 @@ image:
 
 One thing i've been heavily exposed to across a lot of organizations is general observability strategy 
 
-I've worked with various SaaS providers including DataDog, AppDynamics, and the various native cloud offerings and hybrid packaged models like Elastic, as well as native cloud provider logging solutions like AWS CloudWatch and GCP StackDriver.
+I've worked with various SaaS offerings including DataDog, AppDynamics, and the various native cloud offerings and hybrid packaged models like Elastic, alongside various native cloud provider logging solutions like AWS CloudWatch and GCP StackDriver.
 
-I'm a big advocate of Open Source Software and have generally been a proponent of the OpenMetrics standard, Sketch Algorithms and general approach to lower cost monitoring using of time-series data structures.
+I'm a big advocate of Open Source Software and have generally been a proponent of the OpenMetrics standard, and the general approach to lower cost monitoring by pre-computing time-series data structures as opposed to indefinite storage of traditional log-based solutions with heavy indexing.
 
 Ultimately this has led to a few different open source contributions across projects largely in the web3 space, namely the Ethereum Prysm Client to participate in the execution layer of the network, and the MEV-Boost project a tool used by node operators to coordinate block preparation to extract rewards via relays. 
 
-
-We'll talk a little about those contributions an how you might end up getting involved in OSS contributions like this in future, as well as a suggestion for some low hanging fruit in those repositories, but first in this post we'll start delving into the underlying wire format for OpenMetrics, and the implications of using this as a primary datasource for 
+We'll talk a little about those contributions an how you might end up getting involved in OSS contributions like this in future, as well as a suggestion for some low hanging fruit in those repositories, but first in this post we'll start delving into the underlying wire format for OpenMetrics, and the implications of using this as a primary datasource for Prometheus.
 
 ## Caveats
 The aim of this is to not go into the underlying implementation, but more so into the standard and how it is used practically from an engineering perspective.
@@ -90,9 +89,11 @@ http_requests_total{method="delete",endpoint="/api/v1/nodes"} 1
 http_requests_total{method="get",endpoint="/api/v1/nodes"} 100
 ```
 
-Shameless plug of a repository I  put together ([0xste/grok-exporter](https://github.com/0xste/grok-exporter)) to containerize another project which does this ([fstab/grok-exporter](https://github.com/fstab/grok_exporter))
+One of many shameless plugs in this series, here's a repository I  put together a while back ([0xste/grok-exporter](https://github.com/0xste/grok-exporter)) to containerize another project. ([fstab/grok-exporter](https://github.com/fstab/grok_exporter))
 
 You can make use of the configuration below to parse a simple json formatted log, or alternatively a more comprehensive example including separating out the parser configuration is found in this contribution to the OSS project for MEV-Boost https://github.com/flashbots/mev-boost/issues/370#issuecomment-1271715154
+
+The below points to a log file and exportsa counter metric by counting the log lines that match the corresponding "grok" pattern, of which we can also reference some pre-defined patterns. We can reach this prometheus server on port 9144.
 
 ```
 global:
@@ -121,9 +122,9 @@ server:
 
 ### Cardinality
 
-Remember that every unique combination of key-value label pairs represents a new active time series, which can dramatically increase the amount of data stored. 
+One of the main care points is that every unique combination of key-value label pairs represents a new active time series, which can dramatically impact performance over a number of dimensions, namely: storage, query performance and collection delay. 
 
-Cardinality is how many unique values of something there are. So for example a label containing HTTP methods would have a cardinality of 2 if you had only GET and POST in your application.
+Cardinality is a measure of how many distinct occurances of the "fingerprint" of you rmetric. So for example a label containing HTTP methods would have a cardinality of 2 if you had only GET and POST in your application, which is usually fine given there's a finite set of available HTTP methods. A http path is a good example of bad metric cardinality in most instances, and is not something you'd generally use as a label, instead, you'd favor something like an OpenAPI OperationID to identify the route as opposed to the full path, again, reducing the set of possible values.
 
 
 ![cardinality](assets/img/prometheus/cardinality.png)
