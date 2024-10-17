@@ -132,7 +132,7 @@ Cardinality is a measure of how many distinct occurances of the "fingerprint" of
 
 It's generally advised not to use labels with high cardinality (many different label values), such as user IDs, email addresses, or other unbounded sets of values. 
 
-This can grow to be incredibly unwieldly, and is always something that engineers should keep in mind when using the various SDKs, as for the most part, there are no guard rails!
+This can grow to be incredibly unwieldly from an operations POV, and is always something that engineers should keep in mind when using the various SDKs, as for the most part, there are no guard rails!
 
 
 ## In the next post
