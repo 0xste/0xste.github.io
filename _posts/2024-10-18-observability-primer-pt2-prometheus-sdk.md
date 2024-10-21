@@ -1,5 +1,5 @@
 ---
-title: Prometheus Primer
+title: Prometheus in the wild
 date: 2024-10-18 01:00:00 +0000
 categories: [Observability]
 tags: [software,engineering,prometheus,openmetrics,opensource]
@@ -8,7 +8,7 @@ image:
   alt: Prometheus
 ---
 
-In this post, we'll look specifically at Prometheus, and the query language itself
+In this post, we'll look specifically at Prometheus, and it's query language, PromQL
 
 ## What is Prometheus?
 
@@ -17,9 +17,7 @@ A lot of people's exposure to Prometheus is through viewing various Grafana dash
 
 ## A practical Example
 
-Go is my main language of choice these days, [here](https://github.com/flashbots/mev-boost/pull/686) we can find a simple go http server implementation in a core Ethereum OSS project.
-
-We'll look to break this down further:
+Go is my main language of choice these days, [this PR](https://github.com/flashbots/mev-boost/pull/686) outlines an approach for instrumenting a core component for many blockchain node operators use when running validators. The MR instruments with a purposely minimal go http server implementation, and lays the groundwork for additional metric exploration, which we'll dig into more detail through this series.
 
 ### Registry Construction
 
@@ -27,24 +25,25 @@ In our main process, we'll look to construct us a prometheus.Registry, this ulti
 
 If your go code makes use of Dependency Injection, you'll be able to pass this `prometheusRegistry` construct around and have each module define custom metrics on this for export.
 ```
-	prometheusRegistry := prometheus.NewRegistry()
-	if err := prometheusRegistry.Register(collectors.NewGoCollector()); err != nil {
-		log.WithError(err).Error("Failed to register metrics for GoCollector")
-	}
-	if err := prometheusRegistry.Register(collectors.NewProcessCollector(collectors.ProcessCollectorOpts{})); err != nil {
-		log.WithError(err).Error("Failed to register ProcessCollector")
-	}
+prometheusRegistry := prometheus.NewRegistry()
+if err := prometheusRegistry.Register(collectors.NewGoCollector()); err != nil {
+	log.WithError(err).Error("Failed to register metrics for GoCollector")
+}
+if err := prometheusRegistry.Register(collectors.NewProcessCollector(collectors.ProcessCollectorOpts{})); err != nil {
+	log.WithError(err).Error("Failed to register ProcessCollector")
+}
 ```
 
-`NewGoCollector`) exports native go metrics about the current Go process using `debug.GCStats`, and `runtime/metrics`, where `NewProcessCollector` registers exports the current state of process metrics including CPU, memory and file descriptor usage as well as the process start time
 
-At this stage, you've just defined the defaults, we'll look into this some more once we've exported the server runtime 
+`NewGoCollector` exports native go metrics about the current Go process using `debug.GCStats`, and `runtime/metrics`, where `NewProcessCollector` registers the current state of process metrics including CPU, memory and file descriptor usage as well as the process start time
+
+At this stage, you've just constructed the defaults for some simple instrumentation in the registry, we'll look into this some more once we've exported the server runtime
 
 ### Starting the prometheus server
 
 We then look to run a standalone server on a new port for exporting the prometheus runtime, it's generally best practice to run the process on it's own management port so you're not exposing ports externally to customers unneccessarily
 
-In this example, we make use of a common pattern in go, in which your function is implemented as a reciever, and your registry is injected to the "server" struct. 
+In this example, we make use of a pattern i've seen a few times in OSS go, in which your function is implemented as a reciever, and your registry is injected to the "server" struct. 
 ```
 // StartMetricsServer starts the HTTP server for exporting open-metrics
 func (m *BoostService) StartMetricsServer() error {
